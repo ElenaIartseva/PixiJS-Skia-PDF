@@ -26,6 +26,6 @@ npm run dev
 
 ## Link:
 
-https://my-project-2025-ten.vercel.app/
+https://pixi-js-skia-pdf.vercel.app
 
 ---
