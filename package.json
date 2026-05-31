@@ -3,15 +3,36 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "build:canvaskit": "bash scripts/build-canvaskit.sh"
   },
   "dependencies": {
+    "@pixi/app": "7.2.4",
+    "@pixi/canvas-display": "7.2.4",
+    "@pixi/canvas-extract": "7.2.4",
+    "@pixi/canvas-graphics": "7.2.4",
+    "@pixi/canvas-mesh": "7.2.4",
+    "@pixi/canvas-particle-container": "7.2.4",
+    "@pixi/canvas-prepare": "7.2.4",
+    "@pixi/canvas-renderer": "7.2.4",
+    "@pixi/canvas-sprite": "7.2.4",
+    "@pixi/canvas-sprite-tiling": "7.2.4",
+    "@pixi/canvas-text": "7.2.4",
+    "@pixi/display": "7.2.4",
+    "@pixi/graphics": "7.2.4",
+    "@pixi/math": "7.2.4",
+    "@pixi/sprite": "7.2.4",
+    "@pixi/text": "7.2.4",
+    "canvaskit-wasm": "^0.41.1",
+    "html2pdf-skia": "^0.1.4",
     "next": "16.2.6",
+    "pixi.js": "7.2.4",
+    "pixi.js-legacy": "7.2.4",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "sass": "^1.77.8"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Aeonik Pro Trial';
+  src:
+    url('/fonts/aeonikprotrial-light.otf') format('opentype'),
+    url('/pixi-skia-pdf/fonts/aeonikprotrial-light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik Pro Trial';
+  src:
+    url('/fonts/aeonikprotrial-regular.otf') format('opentype'),
+    url('/pixi-skia-pdf/fonts/aeonikprotrial-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik Pro Trial';
+  src:
+    url('/fonts/aeonikprotrial-bold.otf') format('opentype'),
+    url('/pixi-skia-pdf/fonts/aeonikprotrial-bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Aeonik Pro Trial', Arial, Helvetica, sans-serif;
+  background: #EFE6DD;
+  color: #5D727A;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+button {
+  cursor: pointer;
+}

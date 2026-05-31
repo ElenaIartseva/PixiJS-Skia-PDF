@@ -1,0 +1,145 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: clamp(1rem, 4vw, 2rem);
+  min-height: 100vh;
+  width: 100%;
+}
+
+.workspace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.canvases {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.canvasBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, 800px);
+  min-width: 0;
+}
+
+.title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #5D727A;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.error {
+  color: #ff8888;
+  background: #3a1f1f;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  max-width: 900px;
+  text-align: center;
+}
+
+.canvas {
+  border: 1px solid #5D727A;
+  border-radius: 6px;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+}
+
+.status {
+  margin-top: 0.5rem;
+  min-height: 1.2rem;
+  color: #ff8888;
+  background: #3a1f1f;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  max-width: 900px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  background: #d7cfc6;
+  opacity: .8;
+  color: #5D727A;
+  border: 1px solid #5D727A;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition-duration: 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+  &:active {
+    transform: scale(0.95);
+    transition-duration: 0.3s;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    align-items: stretch;
+  }
+
+  .workspace {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .controls {
+    order: -1;
+    flex: 0 0 240px;
+    align-items: stretch;
+    position: sticky;
+    top: 2rem;
+    width: 240px;
+  }
+
+  .canvases {
+    flex: 1 1 auto;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  .canvasBlock {
+    flex: 1 1 0;
+    width: auto;
+    max-width: 800px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

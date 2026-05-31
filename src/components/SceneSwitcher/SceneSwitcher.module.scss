@@ -1,0 +1,46 @@
+.panel {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: #aca59e;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+.label {
+  font-weight: 500;
+  color: #5D727A;
+}
+
+.sceneBtn {
+  padding: 0.4rem 0.8rem;
+  background: #d7cfc6;
+  color: #5D727A;
+  border: none;
+  border-radius: 4px;
+  text-transform: capitalize;
+  opacity: .8;
+
+  &:hover {
+    opacity: 1;
+  }
+  &:active {
+    transform: scale(0.95);
+    transition-duration: 0.3s;
+  }
+}
+
+@media (min-width: 1024px) {
+  .panel {
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .label {
+    text-align: center;
+  }
+}
