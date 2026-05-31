@@ -15,7 +15,7 @@ export function exampleScene(): Container {
   g1.angle = 30;
   g1.interactive = true;
   g1.cursor = 'grab';
-  g1.on('pointerdown', () => console.log('g1 pointerdown!'));
+  g1.on('pointerdown', () => console.log('Нажатие на g1'));
 
   g2.beginFill(0x0000ff);
   g2.drawRect(-50, -75, 100, 150);
@@ -25,7 +25,7 @@ export function exampleScene(): Container {
   g2.scale.set(1.5, 1.7);
   g2.interactive = true;
   g2.cursor = 'grab';
-  g2.on('pointerup', () => console.log('g2 pointerup!'));
+  g2.on('pointerup', () => console.log('Отпускание g2'));
 
   g3.lineStyle(10, 0xffffff, 1);
   g3.moveTo(0, 0).lineTo(150, 100);

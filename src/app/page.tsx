@@ -23,7 +23,7 @@ const CANVAS_HEIGHT = 600;
 const SCENES: Record<string, SceneFactory> = {
   example: exampleScene,
   geometry: geometryScene,
-  textScene,
+  text: textScene,
   sprites: spriteScene,
 };
 
@@ -72,30 +72,44 @@ export default function HomePage() {
 
       loadCanvasKit()
         .then((ckInstance) => {
-          setSkiaStatus('CanvasKit загружен, создаю Skia surface...');
+          setSkiaStatus('CanvasKit загружен, создаю поверхность Skia...');
           setCk(ckInstance);
         })
         .catch((error) => {
           console.error(error);
           setSkiaStatus('CanvasKit не загрузился');
-          reportInitError('CanvasKit не загрузился. Skia-канвас и PDF недоступны.');
+          reportInitError(
+            'CanvasKit не загрузился. Skia-канвас и PDF недоступны',
+          );
         });
     } catch (error) {
       console.error(error);
       reportInitError(
-        error instanceof Error ? error.message : 'Не удалось инициализировать Pixi',
+        error instanceof Error
+          ? error.message
+          : 'Не удалось инициализировать Pixi',
       );
     }
 
     return () => {
-      pixiApp?.destroy(true, { children: true, texture: false, baseTexture: false });
+      pixiApp?.destroy(true, {
+        children: true,
+        texture: false,
+        baseTexture: false,
+      });
       appRef.current = null;
       mainContainerRef.current = null;
     };
   }, [reportInitError]);
 
   useEffect(() => {
-    if (!ck || !pixiCanvasRef.current || !skiaCanvasRef.current || !mainContainerRef.current) return;
+    if (
+      !ck ||
+      !pixiCanvasRef.current ||
+      !skiaCanvasRef.current ||
+      !mainContainerRef.current
+    )
+      return;
 
     const pixiCanvasEl = pixiCanvasRef.current;
     const skCanvasEl = skiaCanvasRef.current;
@@ -113,8 +127,14 @@ export default function HomePage() {
     skiaCacheRef.current = cache;
     cache.start();
 
-    const removePixiPointerEvents = addCanvasPointerEvents(pixiCanvasEl, mainContainerRef.current);
-    const removeSkiaPointerEvents = addCanvasPointerEvents(skCanvasEl, mainContainerRef.current);
+    const removePixiPointerEvents = addCanvasPointerEvents(
+      pixiCanvasEl,
+      mainContainerRef.current,
+    );
+    const removeSkiaPointerEvents = addCanvasPointerEvents(
+      skCanvasEl,
+      mainContainerRef.current,
+    );
 
     dragHandlerRef.current = new DragHandler(
       mainContainerRef.current,
@@ -168,7 +188,7 @@ export default function HomePage() {
     g.angle = Math.random() * 360;
     g.interactive = true;
     g.cursor = 'grab';
-    g.on('pointerdown', () => console.log('random shape'));
+    g.on('pointerdown', () => console.log('Случайная фигура'));
     main.addChild(g);
     skiaCacheRef.current?.markDirty();
     appRef.current?.render();
@@ -187,7 +207,7 @@ export default function HomePage() {
       exportToPdf(ck, mainContainerRef.current);
     } catch (error) {
       console.error(error);
-      alert(error instanceof Error ? error.message : 'PDF export failed');
+      alert(error instanceof Error ? error.message : 'Не удалось экспортировать PDF');
     }
   };
 
@@ -209,7 +229,7 @@ export default function HomePage() {
           <div className={styles.canvasBlock}>
             <h2 className={styles.title}>Canvas Skia</h2>
             <canvas
-              id="skia-output-canvas"
+              id='skia-output-canvas'
               ref={skiaCanvasRef}
               className={styles.canvas}
               width={CANVAS_WIDTH}
@@ -220,13 +240,24 @@ export default function HomePage() {
         </div>
 
         <div className={styles.controls}>
-          <SceneSwitcher scenes={Object.keys(SCENES)} onSwitch={handleSceneChange} />
+          <SceneSwitcher
+            scenes={Object.keys(SCENES)}
+            onSwitch={handleSceneChange}
+          />
 
           <div className={styles.buttons}>
-            <button type="button" onClick={addRandomShape} className={styles.btn}>
+            <button
+              type='button'
+              onClick={addRandomShape}
+              className={styles.btn}
+            >
               Сгенерировать случайную линию / фигуру
             </button>
-            <button type="button" onClick={handleExportPdf} className={styles.btn}>
+            <button
+              type='button'
+              onClick={handleExportPdf}
+              className={styles.btn}
+            >
               Экспорт в PDF
             </button>
           </div>

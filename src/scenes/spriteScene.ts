@@ -27,7 +27,7 @@ export function spriteScene(): Container {
   fitSprite(sprite1, 260, 220);
   sprite1.interactive = true;
   sprite1.cursor = 'grab';
-  sprite1.on('pointerdown', () => console.log('sprite1 click'));
+  sprite1.on('pointerdown', () => console.log('Нажатие на первый спрайт'));
   container.addChild(sprite1);
 
   const sprite2 = Sprite.from(SAMPLE_PNG_DATA_URL);
@@ -37,7 +37,7 @@ export function spriteScene(): Container {
   fitSprite(sprite2, 220, 180);
   sprite2.interactive = true;
   sprite2.cursor = 'grab';
-  sprite2.on('pointerdown', () => console.log('sprite2 click'));
+  sprite2.on('pointerdown', () => console.log('Нажатие на второй спрайт'));
   container.addChild(sprite2);
 
   return container;

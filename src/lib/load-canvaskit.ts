@@ -9,12 +9,12 @@ export async function loadCanvasKit(): Promise<CanvasKit> {
   
   loadPromise = new Promise((resolve, reject) => {
     if (typeof window === 'undefined') {
-      reject('CanvasKit requires browser environment');
+      reject('CanvasKit требует окружение браузера');
       return;
     }
 
     const timeoutId = window.setTimeout(() => {
-      reject(new Error('CanvasKit initialization timed out'));
+      reject(new Error('Время инициализации CanvasKit истекло'));
     }, 10000);
 
     const scriptId = 'canvaskit-pdf-script';
@@ -26,7 +26,7 @@ export async function loadCanvasKit(): Promise<CanvasKit> {
       script.id = scriptId;
       script.src = publicPath('/canvaskit/canvaskit-pdf.js');
       script.onload = () => initCanvasKit();
-      script.onerror = () => reject(new Error('Failed to load canvaskit-pdf.js'));
+      script.onerror = () => reject(new Error('Не удалось загрузить canvaskit-pdf.js'));
       document.head.appendChild(script);
     }
 

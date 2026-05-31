@@ -8,7 +8,7 @@ export function exportToPdf(ck: CanvasKit, container: Container) {
 
   if (typeof ckAny.MakePDFDocument !== 'function') {
     throw new Error(
-      'PDF backend недоступен: загрузите CanvasKit PDF build (canvaskit-pdf.js/wasm).',
+      'PDF-бэкенд недоступен: загрузите PDF-сборку CanvasKit (canvaskit-pdf.js/wasm).',
     );
   }
 
@@ -28,7 +28,7 @@ export function exportToPdf(ck: CanvasKit, container: Container) {
 
   const pdfBytes = pdf.close();
   if (!pdfBytes) {
-    throw new Error('Failed to export PDF: no binary output from CanvasKit PDF document.');
+    throw new Error('Не удалось экспортировать PDF: CanvasKit PDF не вернул бинарные данные.');
   }
   const blob = new Blob([pdfBytes], { type: 'application/pdf' });
   const url = URL.createObjectURL(blob);

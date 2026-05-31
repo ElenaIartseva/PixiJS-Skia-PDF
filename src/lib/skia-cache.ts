@@ -20,11 +20,11 @@ export class SkiaRendererCache {
   ) {
     this.surface = this.createSurface();
     if (!this.surface) {
-      console.error('SkiaRendererCache: CanvasKit could not create a canvas surface');
-      this.onStatus?.('CanvasKit loaded, but Skia surface was not created');
-      this.drawFallbackMessage('Skia surface was not created');
+      console.error('SkiaRendererCache: CanvasKit не смог создать поверхность канваса');
+      this.onStatus?.('CanvasKit загружен, но поверхность Skia не создана');
+      this.drawFallbackMessage('Поверхность Skia не создана');
     } else {
-      this.onStatus?.('Skia surface ready');
+      this.onStatus?.('Поверхность Skia готова');
     }
     this.attachObservers();
     this.markDirty();
@@ -50,7 +50,7 @@ export class SkiaRendererCache {
         const surface = attempt();
         if (surface) return surface;
       } catch (error) {
-        console.warn('CanvasKit surface attempt failed', error);
+        console.warn('Не удалось создать поверхность CanvasKit', error);
       }
     }
 
@@ -89,12 +89,12 @@ export class SkiaRendererCache {
       skCanvas.clear(this.ck.Color4f(...SKIA_BACKGROUND));
       this.container.updateTransform();
       this.renderFn(this.ck, skCanvas, this.container);
-      this.onStatus?.('Skia render updated');
+      this.onStatus?.('Рендер Skia обновлён');
       this.renderErrorReported = false;
     } catch (error) {
-      console.error('Skia render failed', error);
+      console.error('Не удалось выполнить рендер Skia', error);
       if (!this.renderErrorReported) {
-        this.onStatus?.('Skia render failed. Check browser console.');
+        this.onStatus?.('Не удалось выполнить рендер Skia. Проверьте консоль браузера.');
         this.renderErrorReported = true;
       }
     } finally {
