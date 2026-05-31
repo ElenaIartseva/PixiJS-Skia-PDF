@@ -1,4 +1,4 @@
-![Image alt](./public/images/for_readme.webp)
+![Image alt](./public/image/for_readme.webp)
 
 ## PixiJS + Skia (CanvasKit) + PDF
 
