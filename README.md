@@ -2,7 +2,7 @@
 
 ## PixiJS + Skia (CanvasKit) + PDF
 
-Проект на TypeScript: рендер сцены из `PIXI.Container` в CanvasKit (Skia), поддержка интерактивности и экспорт в PDF
+Проект на Next & TypeScript: рендер сцены из `PIXI.Container` в CanvasKit (Skia), поддержка интерактивности и экспорт в PDF
 
 ## ЧТО РЕАЛИЗОВАНО
 
@@ -24,7 +24,7 @@ npm run dev
 
 Открыть http://localhost:3000
 
-## Link:
+## ССЫЛКА:
 
 https://pixi-js-skia-pdf.vercel.app
 
