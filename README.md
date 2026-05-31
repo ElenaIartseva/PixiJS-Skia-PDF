@@ -1,3 +1,5 @@
+![Image alt](./public/images/for_readme.webp)
+
 ## PixiJS + Skia (CanvasKit) + PDF
 
 Проект на TypeScript: рендер сцены из `PIXI.Container` в CanvasKit (Skia), поддержка интерактивности и экспорт в PDF
@@ -21,3 +23,9 @@ npm run dev
 ```
 
 Открыть http://localhost:3000
+
+## Link:
+
+https://my-project-2025-ten.vercel.app/
+
+---
